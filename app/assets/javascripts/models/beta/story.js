@@ -122,6 +122,7 @@ export const deserialize = (story) => ({
   ...story,
   labels: Label.splitLabels(story.labels),
   estimate: story.estimate || '',
+  documents: story.documents.map(document => document.file),
   collapsed: true
 });
 

@@ -10,6 +10,7 @@ import ExpandedStoryNotes from './ExpandedStoryNotes';
 import ExpandedStoryState from './ExpandedStoryState';
 import ExpandedStoryTitle from './ExpandedStoryTitle';
 import ExpandedStoryLabels from './ExpandedStoryLabels';
+import ExpandedStoryAttachments from './ExpandedStoryAttachments';
 import { deleteNote, createNote } from '../../../actions/note';
 import { editStory, updateStory, deleteStory } from '../../../actions/story';
 import ExpandedStoryTask from './ExpandedStoryTask';
@@ -68,6 +69,10 @@ export const ExpandedStory = ({
         onToggle={(task, status) => toggleTask(project.id, story, task, status)}
         onDelete={(taskId) => deleteTask(project.id, story.id, taskId)}
         onSave={(task) => createTask(project.id, story.id, task)}
+      />
+
+      <ExpandedStoryAttachments
+        story={story}
       />
 
       <ExpandedStoryNotes
