@@ -73,6 +73,7 @@ export const ExpandedStory = ({
 
       <ExpandedStoryAttachments
         story={story}
+        onDelete={(value) => editStory(story.id, { documents: value })}
       />
 
       <ExpandedStoryNotes

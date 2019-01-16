@@ -211,7 +211,9 @@
           &__attachments {
             .attachment {
               margin: 5px 0;
-              display: block;
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
 
               &--image {
                 img {
@@ -224,6 +226,7 @@
               }
 
               &--raw {
+                margin-right: 10px;
                 font-size: 12px;
               }
             }
