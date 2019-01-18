@@ -2,7 +2,8 @@ module Gitlab
   module Projects
     class EventsController < ActionController::Base
       def create
-        render status: :ok
+        event = Gitlab::ProjectEventsService.new(params)
+        event.perform
       end
     end
   end
