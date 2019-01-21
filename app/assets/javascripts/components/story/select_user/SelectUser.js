@@ -28,6 +28,6 @@ SelectUser.PropTypes = {
   onEdit: PropTypes.func.isRequired,
   users: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    inamed: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   })
 };
