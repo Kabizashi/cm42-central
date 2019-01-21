@@ -12,8 +12,9 @@ import ExpandedStoryTitle from './ExpandedStoryTitle';
 import ExpandedStoryLabels from './ExpandedStoryLabels';
 import ExpandedStoryAttachments from './ExpandedStoryAttachments';
 import { deleteNote, createNote } from '../../../actions/note';
-import { editStory, updateStory, deleteStory } from '../../../actions/story';
 import ExpandedStoryTask from './ExpandedStoryTask';
+import { editStory, updateStory, deleteStory } from '../../../actions/story';
+import { addAttachment, removeAttachment } from '../../../actions/attachment';
 import { connect } from 'react-redux';
 import * as Story from '../../../models/beta/story';
 
@@ -27,13 +28,15 @@ export const ExpandedStory = ({
   deleteTask,
   toggleTask,
   deleteNote,
-  createNote
+  createNote,
+  addAttachment,
+  removeAttachment
 }) => {
   return (
     <div className="Story Story--expanded">
       <ExpandedStoryControls
         onCancel={onToggle}
-        onSave={() => updateStory(story, project.id)}
+        onSave={() => updateStory(story.id, project.id)}
         onDelete={() => deleteStory(story.id, project.id)}
         readOnly={Story.isAccepted(story)}
       />
@@ -73,7 +76,8 @@ export const ExpandedStory = ({
 
       <ExpandedStoryAttachments
         story={story}
-        onDelete={(value) => editStory(story.id, { documents: value })}
+        onAdd={(attachment) => addAttachment(story.id, project.id, attachment)}
+        onDelete={(documentId) => removeAttachment(story.id, documentId)}
       />
 
       <ExpandedStoryNotes
@@ -109,6 +113,8 @@ export default connect(
     toggleTask,
     deleteStory,
     deleteNote,
-    createNote
+    createNote,
+    addAttachment,
+    removeAttachment
   }
 )(ExpandedStory);
