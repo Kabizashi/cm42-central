@@ -17,5 +17,7 @@ export default keyMirror({
   TOGGLE_TASK: null,
   DELETE_STORY_SUCCESS: null,
   ADD_NOTE: null,
-  DELETE_NOTE: null
+  DELETE_NOTE: null,
+  ADD_ATTACHMENT: null,
+  DELETE_ATTACHMENT: null
 });
